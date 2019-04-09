@@ -16,8 +16,7 @@ export default class extends Component{
     template(h) {
         return h`
 
-            <style>
-                
+            <style>   
                 .sidenav {
                   height: 100%;
                   width: ${this.props.width};
@@ -61,7 +60,6 @@ export default class extends Component{
             <div d-ref="nav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="this.closeNav()">&times;</a>
             </div>
-            
         `
     }
 
@@ -73,22 +71,11 @@ export default class extends Component{
         this.props.width = '0';
     }
 
-    onCreate() {
-
-    }
-
     onMount() {
         this.getHTMLElement().querySelectorAll('[data-link]').forEach(node => {
             this.ref.nav.appendChild(node)
         });
     }
 
-    onUpdate() {
-
-    }
-
-    onDestroy() {
-
-    }
 
 };
