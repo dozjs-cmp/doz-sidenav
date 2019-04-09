@@ -60,7 +60,6 @@ export default class extends Component{
             
             <div d-ref="nav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="this.closeNav()">&times;</a>
-
             </div>
             
         `
