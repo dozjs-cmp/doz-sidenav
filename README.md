@@ -6,7 +6,7 @@ A simple side navigation menu for doz
 npm install doz-sidenav
 ```
 
-Live <a href="https://dozjs-cmp.github.io/doz-sidenav/dist/">here</a>
+Live <a href="https://dozjs-cmp.github.io/doz-sidenav/dist/index.html">here</a>
 
 
 ## Usage
