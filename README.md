@@ -43,15 +43,15 @@ new Doz({
 |colorlinkhover| |CSS text color for a:hover item|
 
 
-## Events
-
+## Method
 | Name | Args | Description |
 | ---- | ------- | ----------- |
-
+|openNav()| |The method to open the sidemenu|
+|closeNav()| |The method to close the sidemenu|
 
 
 ## Changelog
-You can view the changelog <a target="_blank" href="https://github.com/[YOUR-GITHUB-SPACE]/[YOUR-REPOSITORY]/blob/master/CHANGELOG.md">here</a>
+You can view the changelog <a target="_blank" href="https://github.com/dozjs-cmp/doz-sidenav/blob/master/CHANGELOG.md">here</a>
 
 ## License
 doz-sidenav is open-sourced software licensed under the <a target="_blank" href="http://opensource.org/licenses/MIT">MIT license</a>
