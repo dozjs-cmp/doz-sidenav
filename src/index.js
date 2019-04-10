@@ -89,7 +89,6 @@ export default class extends Component{
         for (let i = 0; i < collection.length; i++) {
             this.ref.nav.appendChild(collection[i])
         }
-
     }
 
 
