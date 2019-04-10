@@ -29,14 +29,14 @@
         template(h) {
             return h`
                 <doz-sidenav d:id="sidenav">
-                    <a data-link href="#">About</a>
-                    <a data-link href="#">Services</a>
-                    <a data-link href="#">Clients</a>
-                    <a data-link href="#">Contact</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Clients</a>
+                    <a href="#">Contact</a>
                 </doz-sidenav>
                 <h2>Animated Sidenav Example</h2>
                 <p>Click on the element below to open the side navigation menu.</p>
-                <div style="font-size:30px;cursor:pointer;" onclick="this.getComponentById('sidenav').openNav()"><i class="fas fa-bars"></i> Open</div>
+                <div style="font-size:30px;cursor:pointer;" onclick="this.getComponentById('sidenav').open()"><i class="fas fa-bars"></i> Open</div>
 
             `
         }

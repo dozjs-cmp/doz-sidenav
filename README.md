@@ -1,5 +1,8 @@
 # doz-sidenav
-A simple side navigation menu for doz
+A simple side navigation menu for doz.
+
+This component is a porting from Side Navigation Menu example of W3Schools.
+https://www.w3schools.com/howto/howto_js_sidenav.asp
 
 ## Install
 ```
@@ -20,10 +23,10 @@ new Doz({
         template(h) {
             return h`
                 <doz-sidenav d:id="sidenav">
-                    <a data-link href="#">About</a>
-                    <a data-link href="#">Services</a>
-                    <a data-link href="#">Clients</a>
-                    <a data-link href="#">Contact</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Clients</a>
+                    <a href="#">Contact</a>
                 </doz-sidenav>
                 <h2>Animated Sidenav Example</h2>
                 <p>Click on the element below to open the side navigation menu.</p>
@@ -38,16 +41,17 @@ new Doz({
 ## Props
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-|background| |CSS background color|
-|colorlink| |CSS text color for a item|
-|colorlinkhover| |CSS text color for a:hover item|
+|background|#111|CSS background color|
+|colorlink|#818181|CSS text color for a item|
+|colorlinkhover|#f1f1f1|CSS text color for a:hover item|
 
 
 ## Method
 | Name | Args | Description |
 | ---- | ------- | ----------- |
-|openNav()| |The method to open the sidemenu|
-|closeNav()| |The method to close the sidemenu|
+|open()| |The method to open the sidemenu|
+|close()| |The method to close the sidemenu|
+|isOpen()| |The method returns true or false|
 
 
 ## Changelog

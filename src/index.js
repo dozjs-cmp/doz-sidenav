@@ -7,9 +7,9 @@ export default class extends Component{
 
         this. props = {
             width: '0',
-            background: 'linear-gradient(128deg, #56CCF2, #2F80ED)',
-            colorlink: '#f1f1f1',
-            colorlinkhover: '#818181'
+            background: '#111',
+            colorlink: '#818181',
+            colorlinkhover: '#f1f1f1'
         }
     }
 
@@ -31,7 +31,7 @@ export default class extends Component{
                 }
                 
                 .sidenav a {
-                  padding: 8px 8px 8px 32px;
+                  padding: 8px 8px 8px 0px;
                   text-decoration: none;
                   font-size: 25px;
                   color: ${this.props.colorlink};
@@ -49,6 +49,7 @@ export default class extends Component{
                   right: 25px;
                   font-size: 36px;
                   margin-left: 50px;
+                  cursor: pointer;
                 }
                 
                 @media screen and (max-height: 450px) {
@@ -58,23 +59,37 @@ export default class extends Component{
             </style>
             
             <div d-ref="nav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="this.closeNav()">&times;</a>
+                <a class="closebtn" onclick="this.close()">&times;</a>
             </div>
         `
     }
 
-    openNav() {
+    open() {
         this.props.width = '250px';
     }
 
-    closeNav() {
+    close() {
         this.props.width = '0';
     }
 
+    isOpen() {
+        return this.props.width !== '0';
+    }
+
     onMount() {
-        this.getHTMLElement().querySelectorAll('[data-link]').forEach(node => {
-            this.ref.nav.appendChild(node)
-        });
+        const nodeList = this.getHTMLElement().children;
+
+        const collection = [];
+        for (let i = nodeList.length - 1; i > 0; i--) {
+            collection.push(nodeList[i])
+        }
+
+        collection.reverse();
+
+        for (let i = 0; i < collection.length; i++) {
+            this.ref.nav.appendChild(collection[i])
+        }
+
     }
 
 

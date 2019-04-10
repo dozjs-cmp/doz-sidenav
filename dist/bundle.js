@@ -1,4 +1,4 @@
-// [DozSidenav]  Build version: 1.0.1  
+// [DozSidenav]  Build version: 2.0.0  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
@@ -147,7 +147,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 32px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a href="javascript:void(0)" class="closebtn" onclick="this.closeNav()">&times;</a>\n            </div>\n        '], ['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 32px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a href="javascript:void(0)" class="closebtn" onclick="this.closeNav()">&times;</a>\n            </div>\n        ']);
+var _templateObject = _taggedTemplateLiteral(['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 0px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 0px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
 
 var _doz = __webpack_require__(0);
 
@@ -169,9 +169,9 @@ var _class = function (_Component) {
 
         _this.props = {
             width: '0',
-            background: 'linear-gradient(128deg, #56CCF2, #2F80ED)',
-            colorlink: '#f1f1f1',
-            colorlinkhover: '#818181'
+            background: '#111',
+            colorlink: '#818181',
+            colorlinkhover: '#f1f1f1'
         };
         return _this;
     }
@@ -182,23 +182,35 @@ var _class = function (_Component) {
             return h(_templateObject, this.props.width, this.props.background, this.props.colorlink, this.props.colorlinkhover);
         }
     }, {
-        key: 'openNav',
-        value: function openNav() {
+        key: 'open',
+        value: function open() {
             this.props.width = '250px';
         }
     }, {
-        key: 'closeNav',
-        value: function closeNav() {
+        key: 'close',
+        value: function close() {
             this.props.width = '0';
+        }
+    }, {
+        key: 'isOpen',
+        value: function isOpen() {
+            return this.props.width !== '0';
         }
     }, {
         key: 'onMount',
         value: function onMount() {
-            var _this2 = this;
+            var nodeList = this.getHTMLElement().children;
 
-            this.getHTMLElement().querySelectorAll('[data-link]').forEach(function (node) {
-                _this2.ref.nav.appendChild(node);
-            });
+            var collection = [];
+            for (var i = nodeList.length - 1; i > 0; i--) {
+                collection.push(nodeList[i]);
+            }
+
+            collection.reverse();
+
+            for (var _i = 0; _i < collection.length; _i++) {
+                this.ref.nav.appendChild(collection[_i]);
+            }
         }
     }]);
 
