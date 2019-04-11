@@ -79,16 +79,16 @@ export default class extends Component{
     onMount() {
         const nodeList = this.getHTMLElement().children;
 
-        const collection = [];
-        for (let i = nodeList.length - 1; i > 0; i--) {
-            collection.push(nodeList[i])
+        // Remove from DOM
+        const rootNode = this.getHTMLElement().removeChild(nodeList[0]);
+
+        while (this.getHTMLElement().hasChildNodes()) {
+            // Destination node
+            this.ref.nav.appendChild(this.getHTMLElement().childNodes[0]);
         }
 
-        collection.reverse();
-
-        for (let i = 0; i < collection.length; i++) {
-            this.ref.nav.appendChild(collection[i])
-        }
+        // Re-append to the DOM
+        this.getHTMLElement().appendChild(rootNode);
     }
 
 
