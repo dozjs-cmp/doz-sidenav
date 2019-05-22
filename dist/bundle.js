@@ -1,4 +1,4 @@
-// [DozSidenav]  Build version: 2.0.2  
+// [DozSidenav]  Build version: 2.0.3  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
