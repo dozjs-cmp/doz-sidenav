@@ -1,17 +1,11 @@
-import {Component} from "doz";
+export default {
 
-export default class extends Component{
-
-    constructor(o) {
-        super(o);
-
-        this. props = {
-            width: '0',
-            background: '#111',
-            colorlink: '#818181',
-            colorlinkhover: '#f1f1f1'
-        }
-    }
+    props: {
+        width: '0',
+        background: '#111',
+        colorlink: '#818181',
+        colorlinkhover: '#f1f1f1'
+    },
 
     template(h) {
         return h`
@@ -62,19 +56,19 @@ export default class extends Component{
                 <a class="closebtn" onclick="this.close()">&times;</a>
             </div>
         `
-    }
+    },
 
     open() {
         this.props.width = '250px';
-    }
+    },
 
     close() {
         this.props.width = '0';
-    }
+    },
 
     isOpen() {
         return this.props.width !== '0';
-    }
+    },
 
     onMount() {
         const nodeList = this.getHTMLElement().children;

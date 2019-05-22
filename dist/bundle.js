@@ -8,7 +8,7 @@
 		exports["DozSidenav"] = factory(require("doz"));
 	else
 		root["DozSidenav"] = factory(root["Doz"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE__0__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE__1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -92,17 +92,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -112,7 +106,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _doz = __webpack_require__(0);
+var _doz = __webpack_require__(1);
 
 var _src = __webpack_require__(2);
 
@@ -135,6 +129,12 @@ exports.default = _src2.default;
 if (false) {}
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
+
+/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -145,80 +145,46 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _templateObject = _taggedTemplateLiteral(['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 0px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 0px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
-
-var _doz = __webpack_require__(0);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+exports.default = {
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+    props: {
+        width: '0',
+        background: '#111',
+        colorlink: '#818181',
+        colorlinkhover: '#f1f1f1'
+    },
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    template: function template(h) {
+        return h(_templateObject, this.props.width, this.props.background, this.props.colorlink, this.props.colorlinkhover);
+    },
+    open: function open() {
+        this.props.width = '250px';
+    },
+    close: function close() {
+        this.props.width = '0';
+    },
+    isOpen: function isOpen() {
+        return this.props.width !== '0';
+    },
+    onMount: function onMount() {
+        var nodeList = this.getHTMLElement().children;
 
-var _class = function (_Component) {
-    _inherits(_class, _Component);
+        // Remove from DOM
+        var rootNode = this.getHTMLElement().removeChild(nodeList[0]);
 
-    function _class(o) {
-        _classCallCheck(this, _class);
+        while (this.getHTMLElement().hasChildNodes()) {
+            // Destination node
+            this.ref.nav.appendChild(this.getHTMLElement().childNodes[0]);
+        }
 
-        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, o));
-
-        _this.props = {
-            width: '0',
-            background: '#111',
-            colorlink: '#818181',
-            colorlinkhover: '#f1f1f1'
-        };
-        return _this;
+        // Re-append to the DOM
+        this.getHTMLElement().appendChild(rootNode);
     }
-
-    _createClass(_class, [{
-        key: 'template',
-        value: function template(h) {
-            return h(_templateObject, this.props.width, this.props.background, this.props.colorlink, this.props.colorlinkhover);
-        }
-    }, {
-        key: 'open',
-        value: function open() {
-            this.props.width = '250px';
-        }
-    }, {
-        key: 'close',
-        value: function close() {
-            this.props.width = '0';
-        }
-    }, {
-        key: 'isOpen',
-        value: function isOpen() {
-            return this.props.width !== '0';
-        }
-    }, {
-        key: 'onMount',
-        value: function onMount() {
-            var nodeList = this.getHTMLElement().children;
-
-            var collection = [];
-            for (var i = nodeList.length - 1; i > 0; i--) {
-                collection.push(nodeList[i]);
-            }
-
-            collection.reverse();
-
-            for (var _i = 0; _i < collection.length; _i++) {
-                this.ref.nav.appendChild(collection[_i]);
-            }
-        }
-    }]);
-
-    return _class;
-}(_doz.Component);
-
-exports.default = _class;
-;
+};
 
 /***/ })
 /******/ ]);
