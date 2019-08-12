@@ -1,6 +1,6 @@
 {
     "name": "doz-sidenav",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "A simple side navigation menu for doz",
     "main": "dist/bundle.js",
     "scripts": {

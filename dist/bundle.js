@@ -1,4 +1,4 @@
-// [DozSidenav]  Build version: 2.0.3  
+// [DozSidenav]  Build version: 2.0.4  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
@@ -145,7 +145,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _templateObject = _taggedTemplateLiteral(['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 0px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n\n            <style>   \n                .sidenav {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                .sidenav a {\n                  padding: 8px 8px 8px 0px;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                .sidenav a:hover {\n                  color: ', ';\n                }\n                \n                .sidenav .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  .sidenav {padding-top: 15px;}\n                  .sidenav a {font-size: 18px;}\n                }\n            </style>\n            \n            <div d-ref="nav" class="sidenav">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
+var _templateObject = _taggedTemplateLiteral(['\n\n            <style>   \n                :root {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :root a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :root a:hover {\n                  color: ', ';\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :root {padding-top: 15px;}\n                  :root a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n\n            <style>   \n                :root {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: 1;\n                  top: 0;\n                  left: 0;\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :root a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :root a:hover {\n                  color: ', ';\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :root {padding-top: 15px;}\n                  :root a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -169,20 +169,6 @@ exports.default = {
     },
     isOpen: function isOpen() {
         return this.props.width !== '0';
-    },
-    onMount: function onMount() {
-        var nodeList = this.getHTMLElement().children;
-
-        // Remove from DOM
-        var rootNode = this.getHTMLElement().removeChild(nodeList[0]);
-
-        while (this.getHTMLElement().hasChildNodes()) {
-            // Destination node
-            this.ref.nav.appendChild(this.getHTMLElement().childNodes[0]);
-        }
-
-        // Re-append to the DOM
-        this.getHTMLElement().appendChild(rootNode);
     }
 };
 
