@@ -5,7 +5,8 @@
     <meta name="description" content="DOZ - COMPONENT">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>DOZ - SIDENAV</title>
-    <script src="https://unpkg.com/doz/dist/doz.js"></script>
+    <!--script src="https://unpkg.com/doz/dist/doz.js"></script-->
+    <script src="https://dozjs.github.io/doz/dist/doz.js?589654"></script>
     <script src="bundle.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -25,19 +26,25 @@
 
     new Doz({
         root: '#app',
-
+        props: {
+            clock: new Date().toLocaleTimeString()
+        },
         template(h) {
             return h`
                 <doz-sidenav d:id="sidenav">
                     <a href="#">Services</a>
                     <a href="#">Clients</a>
                     <a href="#">Contact</a>
+                    <div style="color: white">${this.props.clock}</div>
                 </doz-sidenav>
                 <h2>Animated Sidenav Example</h2>
                 <p>Click on the element below to open the side navigation menu.</p>
                 <div style="font-size:30px;cursor:pointer;" onclick="this.getComponentById('sidenav').open()"><i class="fas fa-bars"></i> Open</div>
 
             `
+        },
+        onMount() {
+            setInterval(() => this.props.clock = new Date().toLocaleTimeString(), 1000)
         }
     });
 

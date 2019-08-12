@@ -11,7 +11,7 @@ export default {
         return h`
 
             <style>   
-                .sidenav {
+                :root {
                   height: 100%;
                   width: ${this.props.width};
                   position: fixed;
@@ -24,8 +24,8 @@ export default {
                   padding-top: 60px;
                 }
                 
-                .sidenav a {
-                  padding: 8px 8px 8px 0px;
+                :root a {
+                  padding: 8px 8px 8px 0;
                   text-decoration: none;
                   font-size: 25px;
                   color: ${this.props.colorlink};
@@ -33,11 +33,11 @@ export default {
                   transition: 0.3s;
                 }
                 
-                .sidenav a:hover {
+                :root a:hover {
                   color: ${this.props.colorlinkhover};
                 }
                 
-                .sidenav .closebtn {
+                .tools .closebtn {
                   position: absolute;
                   top: 0;
                   right: 25px;
@@ -47,12 +47,12 @@ export default {
                 }
                 
                 @media screen and (max-height: 450px) {
-                  .sidenav {padding-top: 15px;}
-                  .sidenav a {font-size: 18px;}
+                  :root {padding-top: 15px;}
+                  :root a {font-size: 18px;}
                 }
             </style>
             
-            <div d-ref="nav" class="sidenav">
+            <div class="tools">
                 <a class="closebtn" onclick="this.close()">&times;</a>
             </div>
         `
@@ -68,22 +68,6 @@ export default {
 
     isOpen() {
         return this.props.width !== '0';
-    },
-
-    onMount() {
-        const nodeList = this.getHTMLElement().children;
-
-        // Remove from DOM
-        const rootNode = this.getHTMLElement().removeChild(nodeList[0]);
-
-        while (this.getHTMLElement().hasChildNodes()) {
-            // Destination node
-            this.ref.nav.appendChild(this.getHTMLElement().childNodes[0]);
-        }
-
-        // Re-append to the DOM
-        this.getHTMLElement().appendChild(rootNode);
     }
-
 
 };
