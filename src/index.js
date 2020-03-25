@@ -4,27 +4,28 @@ export default {
         width: '0',
         background: '#111',
         colorlink: '#818181',
-        colorlinkhover: '#f1f1f1'
+        colorlinkhover: '#f1f1f1',
+        sideposition: 'left'
     },
 
     template(h) {
         return h`
 
             <style>   
-                :root {
+                :component {
                   height: 100%;
                   width: ${this.props.width};
                   position: fixed;
                   z-index: 1;
                   top: 0;
-                  left: 0;
+                  ${this.props.sideposition === 'left' ? 'left: 0' : 'right: 0'};
                   background: ${this.props.background};
                   overflow-x: hidden;
                   transition: 0.5s;
                   padding-top: 60px;
                 }
                 
-                :root a {
+                :component a {
                   padding: 8px 8px 8px 0;
                   text-decoration: none;
                   font-size: 25px;
@@ -33,7 +34,7 @@ export default {
                   transition: 0.3s;
                 }
                 
-                :root a:hover {
+                :component a:hover {
                   color: ${this.props.colorlinkhover};
                 }
                 
@@ -47,8 +48,8 @@ export default {
                 }
                 
                 @media screen and (max-height: 450px) {
-                  :root {padding-top: 15px;}
-                  :root a {font-size: 18px;}
+                  :component {padding-top: 15px;}
+                  :component a {font-size: 18px;}
                 }
             </style>
             

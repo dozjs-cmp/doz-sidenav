@@ -44,6 +44,7 @@ new Doz({
 |background|#111|CSS background color|
 |colorlink|#818181|CSS text color for a item|
 |colorlinkhover|#f1f1f1|CSS text color for a:hover item|
+|sideposition|left|left or right|
 
 
 ## Method
