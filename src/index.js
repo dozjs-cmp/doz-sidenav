@@ -6,12 +6,12 @@ export default {
         colorlink: '#818181',
         colorlinkhover: '#f1f1f1',
         sideposition: 'left',
-        zindex: 1000
+        zindex: 1000,
+        closeafterclick: false
     },
 
     template(h) {
         return h`
-
             <style>   
                 :component {
                   height: 100%;
@@ -20,7 +20,7 @@ export default {
                   z-index: ${this.props.zindex};
                   top: 0;
                   ${this.props.sideposition === 'left' ? 'left: 0' : 'right: 0'};
-                  background: ${this.props.background};
+                  background: ${this.props.background}!important;
                   overflow-x: hidden;
                   transition: 0.5s;
                   padding-top: 60px;
@@ -30,13 +30,13 @@ export default {
                   padding: 8px 8px 8px 0;
                   text-decoration: none;
                   font-size: 25px;
-                  color: ${this.props.colorlink};
+                  color: ${this.props.colorlink}!important;
                   display: block;
                   transition: 0.3s;
                 }
                 
                 :component a:hover {
-                  color: ${this.props.colorlinkhover};
+                  color: ${this.props.colorlinkhover}!important;
                 }
                 
                 .tools .closebtn {
@@ -58,6 +58,19 @@ export default {
                 <a class="closebtn" onclick="this.close()">&times;</a>
             </div>
         `
+    },
+
+    onMount() {
+        if (!this.listenerOnComponent) {
+            this.listenerOnComponent = () => this.rootClick();
+            this.getHTMLElement().addEventListener('click', this.listenerOnComponent);
+        }
+    },
+
+    rootClick() {
+        if (this.props.closeafterclick) {
+            this.close();
+        }
     },
 
     open() {
