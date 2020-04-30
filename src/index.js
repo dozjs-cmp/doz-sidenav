@@ -5,7 +5,8 @@ export default {
         background: '#111',
         colorlink: '#818181',
         colorlinkhover: '#f1f1f1',
-        sideposition: 'left'
+        sideposition: 'left',
+        zindex: 1000
     },
 
     template(h) {
@@ -16,7 +17,7 @@ export default {
                   height: 100%;
                   width: ${this.props.width};
                   position: fixed;
-                  z-index: 1;
+                  z-index: ${this.props.zindex};
                   top: 0;
                   ${this.props.sideposition === 'left' ? 'left: 0' : 'right: 0'};
                   background: ${this.props.background};
