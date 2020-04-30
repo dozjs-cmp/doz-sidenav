@@ -1,4 +1,4 @@
-// [DozSidenav]  Build version: 3.2.0  
+// [DozSidenav]  Build version: 3.3.0  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
@@ -145,7 +145,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _templateObject = _taggedTemplateLiteral(['\n\n            <style>   \n                :component {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: ', ';\n                  top: 0;\n                  ', ';\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :component a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :component a:hover {\n                  color: ', ';\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n\n            <style>   \n                :component {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: ', ';\n                  top: 0;\n                  ', ';\n                  background: ', ';\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :component a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', ';\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :component a:hover {\n                  color: ', ';\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
+var _templateObject = _taggedTemplateLiteral(['\n            <style>   \n                :component {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: ', ';\n                  top: 0;\n                  ', ';\n                  background: ', '!important;\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :component a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', '!important;\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :component a:hover {\n                  color: ', '!important;\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n            <style>   \n                :component {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: ', ';\n                  top: 0;\n                  ', ';\n                  background: ', '!important;\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :component a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', '!important;\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :component a:hover {\n                  color: ', '!important;\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -157,11 +157,27 @@ exports.default = {
         colorlink: '#818181',
         colorlinkhover: '#f1f1f1',
         sideposition: 'left',
-        zindex: 1000
+        zindex: 1000,
+        closeafterclick: false
     },
 
     template: function template(h) {
         return h(_templateObject, this.props.width, this.props.zindex, this.props.sideposition === 'left' ? 'left: 0' : 'right: 0', this.props.background, this.props.colorlink, this.props.colorlinkhover);
+    },
+    onMount: function onMount() {
+        var _this = this;
+
+        if (!this.listenerOnComponent) {
+            this.listenerOnComponent = function () {
+                return _this.rootClick();
+            };
+            this.getHTMLElement().addEventListener('click', this.listenerOnComponent);
+        }
+    },
+    rootClick: function rootClick() {
+        if (this.props.closeafterclick) {
+            this.close();
+        }
     },
     open: function open() {
         this.props.width = '250px';
