@@ -1,4 +1,4 @@
-// [DozSidenav]  Build version: 3.3.0  
+// [DozSidenav]  Build version: 3.4.0  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("doz"));
@@ -145,7 +145,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _templateObject = _taggedTemplateLiteral(['\n            <style>   \n                :component {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: ', ';\n                  top: 0;\n                  ', ';\n                  background: ', '!important;\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :component a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', '!important;\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :component a:hover {\n                  color: ', '!important;\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n            <style>   \n                :component {\n                  height: 100%;\n                  width: ', ';\n                  position: fixed;\n                  z-index: ', ';\n                  top: 0;\n                  ', ';\n                  background: ', '!important;\n                  overflow-x: hidden;\n                  transition: 0.5s;\n                  padding-top: 60px;\n                }\n                \n                :component a {\n                  padding: 8px 8px 8px 0;\n                  text-decoration: none;\n                  font-size: 25px;\n                  color: ', '!important;\n                  display: block;\n                  transition: 0.3s;\n                }\n                \n                :component a:hover {\n                  color: ', '!important;\n                }\n                \n                .tools .closebtn {\n                  position: absolute;\n                  top: 0;\n                  right: 25px;\n                  font-size: 36px;\n                  margin-left: 50px;\n                  cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
+var _templateObject = _taggedTemplateLiteral(['\n            <style>   \n                :component {\n                    height: 100%;\n                    width: ', ';\n                    position: fixed;\n                    z-index: ', ';\n                    top: 0;\n                    ', ';\n                    background: ', '!important;\n                    overflow-x: hidden;\n                    transition: 0.5s;\n                    padding-top: 60px;\n                }\n                \n                :component a {\n                    padding: 8px;\n                    text-decoration: none;\n                    font-size: 25px;\n                    color: ', '!important;\n                    display: block;\n                    transition: 0.3s;\n                }\n                \n                :component a:hover {\n                    color: ', '!important;\n                }\n                \n                .tools .closebtn {\n                    position: absolute;\n                    top: 0;\n                    right: 25px;\n                    font-size: 36px;\n                    margin-left: 50px;\n                    cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        '], ['\n            <style>   \n                :component {\n                    height: 100%;\n                    width: ', ';\n                    position: fixed;\n                    z-index: ', ';\n                    top: 0;\n                    ', ';\n                    background: ', '!important;\n                    overflow-x: hidden;\n                    transition: 0.5s;\n                    padding-top: 60px;\n                }\n                \n                :component a {\n                    padding: 8px;\n                    text-decoration: none;\n                    font-size: 25px;\n                    color: ', '!important;\n                    display: block;\n                    transition: 0.3s;\n                }\n                \n                :component a:hover {\n                    color: ', '!important;\n                }\n                \n                .tools .closebtn {\n                    position: absolute;\n                    top: 0;\n                    right: 25px;\n                    font-size: 36px;\n                    margin-left: 50px;\n                    cursor: pointer;\n                }\n                \n                @media screen and (max-height: 450px) {\n                  :component {padding-top: 15px;}\n                  :component a {font-size: 18px;}\n                }\n            </style>\n            \n            <div class="tools">\n                <a class="closebtn" onclick="this.close()">&times;</a>\n            </div>\n        ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -158,8 +158,11 @@ exports.default = {
         colorlinkhover: '#f1f1f1',
         sideposition: 'left',
         zindex: 1000,
+        backdropBackground: 'rgba(0,0,0,0.6)',
         closeafterclick: false
     },
+
+    $backdropElement: null,
 
     template: function template(h) {
         return h(_templateObject, this.props.width, this.props.zindex, this.props.sideposition === 'left' ? 'left: 0' : 'right: 0', this.props.background, this.props.colorlink, this.props.colorlinkhover);
@@ -179,11 +182,29 @@ exports.default = {
             this.close();
         }
     },
+    createBackdrop: function createBackdrop() {
+        var _this2 = this;
+
+        this.$backdropElement = document.createElement('div');
+        this.$backdropElement.style.cssText = '\n            background: ' + this.props.backdropBackground + '; \n            z-index: ' + (this.props.zindex - 1) + ';\n            position: fixed; \n            top: 0; \n            left: 0; \n            width: 100%; \n            height: 100%; \n        ';
+        this.$backdropElement.addEventListener('click', function () {
+            return _this2.close();
+        });
+        document.body.appendChild(this.$backdropElement);
+    },
+    destroyBackdrop: function destroyBackdrop() {
+        if (this.$backdropElement) {
+            document.body.removeChild(this.$backdropElement);
+            this.$backdropElement = null;
+        }
+    },
     open: function open() {
         this.props.width = '250px';
+        this.createBackdrop();
     },
     close: function close() {
         this.props.width = '0';
+        this.destroyBackdrop();
     },
     isOpen: function isOpen() {
         return this.props.width !== '0';
